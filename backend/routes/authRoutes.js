@@ -3,7 +3,9 @@ const {
   register,
   login,
   getCurrentUser,
+  getAllUsers,
 } = require("../controllers/authControllers");
+const isAdmin = require("../midlewares/authorization/isAdmin");
 const isauth = require("../midlewares/authorization/isauth");
 const {
   registerRules,
@@ -33,5 +35,12 @@ router.post("/signin", loginRules, validator, login);
  * @access private
  */
 router.get("/", isauth(), getCurrentUser);
+
+/**
+ * @methode GET /all users
+ * @description show all users
+ * @access protected (role:admin)
+ */
+router.get("/all", isauth(), isAdmin, getAllUsers);
 
 module.exports = router;

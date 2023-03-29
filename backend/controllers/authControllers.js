@@ -39,13 +39,27 @@ module.exports.login = async (req, res) => {
     // //token creation
     const payload = { userid: existUser._id };
     const token = await createToken(payload);
-    existUser.password = undefined;
+    // existUser.password = undefined;
     console.log(token);
-    res.send({ user: existUser, token });
+    res.send({ token });
   } catch (error) {
     res.status(500).send({ msg: error.message });
   }
 };
-module.exports.getCurrentUser = (req, res) => {
-  res.send("hello");
+//get the current user
+module.exports.getCurrentUser = async (req, res) => {
+  try {
+    await res.send({ user: req.user });
+  } catch (error) {
+    res.status(500).send({ msg: error.message });
+  }
+};
+// get all users
+module.exports.getAllUsers = async (req, res) => {
+  try {
+    const allUsers = await userModel.find();
+    res.send({ users: allUsers });
+  } catch (error) {
+    res.status(500).send({ msg: error.message });
+  }
 };
