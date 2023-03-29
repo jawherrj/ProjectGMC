@@ -1,5 +1,10 @@
 const exprss = require("express");
-const { register, login } = require("../controllers/authControllers");
+const {
+  register,
+  login,
+  getCurrentUser,
+} = require("../controllers/authControllers");
+const isauth = require("../midlewares/authorization/isauth");
 const {
   registerRules,
   validator,
@@ -21,4 +26,12 @@ module.exports = router;
  * @access public
  */
 router.post("/signin", loginRules, validator, login);
+
+/**
+ * @methode GET /auth/
+ * @description athentified user
+ * @access private
+ */
+router.get("/", isauth(), getCurrentUser);
+
 module.exports = router;

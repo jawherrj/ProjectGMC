@@ -27,19 +27,25 @@ module.exports.login = async (req, res) => {
   try {
     //verifier if the user exist
     const existUser = await userModel.findOne({ email });
+
     if (!existUser) {
       return res.status(400).send({ msg: "Bad credentials(email)" });
     }
-    //verifier if the pssword is correct
-    const match = comparePassword(password, existUser.password);
+    // //verifier if the pssword is correct
+    const match = await comparePassword(password, existUser.password);
     if (!match) {
       return res.status(400).send({ msg: "Bad credentials(password)" });
     }
-    //token creation
+    // //token creation
     const payload = { userid: existUser._id };
-    const token = createToken(payload);
-    res.send({ user: { ...existUser, password: undefined }, token });
+    const token = await createToken(payload);
+    existUser.password = undefined;
+    console.log(token);
+    res.send({ user: existUser, token });
   } catch (error) {
     res.status(500).send({ msg: error.message });
   }
+};
+module.exports.getCurrentUser = (req, res) => {
+  res.send("hello");
 };
