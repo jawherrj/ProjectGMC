@@ -1,0 +1,4 @@
+export const LOADING = "LOADING";
+
+export const REGISTERSUCCESS = "REGISTERSUCCESS";
+export const AUTHFAILED = "AUTHFAILED";
