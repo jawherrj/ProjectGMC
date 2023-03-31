@@ -39,9 +39,9 @@ module.exports.login = async (req, res) => {
     // //token creation
     const payload = { userid: existUser._id };
     const token = await createToken(payload);
-    // existUser.password = undefined;
+    existUser.password = undefined;
     console.log(token);
-    res.send({ token });
+    res.send({ token, msg: "user successfully conected", user: existUser });
   } catch (error) {
     res.status(500).send({ msg: error.message });
   }

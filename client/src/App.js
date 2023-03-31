@@ -6,15 +6,32 @@ import Login from "./components/login/Login";
 import Signup from "./components/login/Signup";
 import NavigationBar from "./components/NavigationBar";
 
+import { useDispatch, useSelector } from "react-redux";
+import { getCurrentUser } from "./JS/actions/authactions";
+//import { useEffect } from "react";
+
 function App() {
+  const dispatch = useDispatch;
+
+  // useEffect(() => {
+
+  // }, []);
+  const handleClick = () => {
+    dispatch(getCurrentUser());
+  };
+  const currentUser = useSelector((state) => state.auth.currentUser);
+  console.log(currentUser);
   return (
-    <div className="App">
-      <NavigationBar />
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/" element={<Home />} />
-      </Routes>
+    <div>
+      <div className="App">
+        <NavigationBar />
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </div>
+      {/* <button onClick={handleClick}>click</button> */}
     </div>
   );
 }

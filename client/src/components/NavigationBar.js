@@ -8,16 +8,16 @@ function NavigationBar() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">Available mechanic</Navbar.Brand>
+        <Navbar.Brand href="/">Available mechanic</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">Home</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="#pricing">About us</Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">login</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
+            <Nav.Link href="/login">login</Nav.Link>
+            <Nav.Link eventKey={2} href="/signup">
               signup
             </Nav.Link>
           </Nav>

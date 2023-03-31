@@ -1,17 +1,41 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
+import { login } from "../../JS/actions/authactions";
 const Login = () => {
-  const [users, setUsers] = useState([]);
+  const [loginData, setEditData] = useState({});
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleChange = (e) => {
+    setEditData({ ...loginData, [e.target.name]: e.target.value });
+  };
+  const alertMessage = useSelector((state) => state.auth.alert);
 
-  useEffect(() => {
-    axios.get();
-  });
+  const handleSubmit = () => {
+    dispatch(login(loginData, navigate));
+  };
   return (
-    <div>
-      <input type="email" placeholder="Email adress" />
-      <input type="password" placeholder=" adress" />;
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        flexDirection: "column",
+        margin: "10% auto ",
+        width: "550px",
+      }}
+    >
+      <input name="email" type="email" onChange={handleChange} />
+      <input name="password" type="password" onChange={handleChange} />
+      <button onClick={handleSubmit}>LOGIN</button>
+      {alertMessage ? (
+        <alert severity="success" color="info">
+          {alertMessage}, you can login to your account now
+        </alert>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
-
 export default Login;

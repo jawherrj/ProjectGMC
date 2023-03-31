@@ -1,4 +1,6 @@
 export const LOADING = "LOADING";
 
 export const REGISTERSUCCESS = "REGISTERSUCCESS";
+export const LOGINSUCCESS = "LOGINSUCCESS";
+export const GETSUCCESS = "GETSUCCESS";
 export const AUTHFAILED = "AUTHFAILED";

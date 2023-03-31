@@ -1,0 +1,88 @@
+.btn {
+  display: inline-block;
+  padding: 0 1.25rem;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: #1fa9b6;
+  border-radius: 1.5625rem;
+  height: 2.8125rem;
+  line-height: 2.8125rem;
+  text-align: center;
+  min-width: 9.375rem;
+  white-space: nowrap;
+  margin: 0.625rem 0;
+  border: 1px solid #1fa9b6;
+  transition: all 0.3s ease;
+  vertical-align: middle;
+}
+.para {
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: #1fa9b6;
+  margin: 0 0 1.25rem;
+  font-family: "Montserrat", sans-serif;
+}
+body {
+  background-image: url(/src/components/image/sss.jpg);
+  background-repeat: no-repeat;
+}
+.one {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+  text-align: center;
+  padding: 0 2em;
+  font-size: 2rem;
+  margin: 0;
+}
+h4 {
+  display: flex;
+  color: #070707;
+  justify-content: center;
+  padding: 10px;
+  font-size: 25px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+ul {
+  list-style-type: none;
+}
+.twoo {
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: #0a0a0a;
+  margin: 0 0 1.25rem;
+  font-family: "Montserrat", sans-serif;
+}
+h3 {
+  display: flex;
+  color: #070707;
+  justify-content: center;
+  padding: 10px;
+  font-size: 25px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.yuyu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+  text-align: center;
+  padding: 0 2em;
+  font-size: 2rem;
+  margin: 0;
+  justify-content: space-around;
+}

@@ -1,35 +1,33 @@
 // import React, { useState } from "react";
 import { useState } from "react";
 import Form from "react-bootstrap/Form";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
+import { register } from "../../JS/actions/authactions";
 
 const Signup = () => {
   const [editData, setEditData] = useState({});
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleChange = (e) => {
     setEditData({ ...editData, [e.target.name]: e.target.value });
   };
+  console.log(editData);
   const handleSubmit = () => {
-    const data = new FormData();
-    data.append("name", editData.name);
-    data.append("lastName", editData.lastName);
-    data.append("email", editData.email);
-    data.append("password", editData.password);
-    data.append("phone", editData.phone);
-    data.append("adresse", editData.adresse);
-    data.append("birthday", editData.birthday);
-    //  ({
-    //     name: data.get("name"),
-    //     lastName: data.get("lastName"),
-    //     email: data.get("email"),
-    //     password: data.get("password"),
-    //     phone: data.get("phone"),
-    //     adresse: data.get("adresse"),
-    //     birthday: data.get("birthday"),
-    //     role: data.get("role") ? "mechanic" : "client",
-    //   });
-    console.log(data);
+    dispatch(register(editData, navigate));
   };
+
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "space-between",
+        flexDirection: "column",
+        margin: "20px auto",
+        width: "550px",
+      }}
+    >
       <input
         name="name"
         type="text"
