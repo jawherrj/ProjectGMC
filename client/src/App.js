@@ -9,17 +9,16 @@ import NavigationBar from "./components/NavigationBar";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentUser } from "./JS/actions/authactions";
 import Aboutus from "./components/Aboutus";
+import { useEffect } from "react";
 //import { useEffect } from "react";
 
 function App() {
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-
-  // }, []);
-  const handleClick = () => {
+  useEffect(() => {
     dispatch(getCurrentUser());
-  };
+  }, []);
+
   const currentUser = useSelector((state) => state.auth.currentUser);
   console.log(currentUser);
   return (
@@ -33,7 +32,6 @@ function App() {
           <Route path="/about_us" element={<Aboutus />} />
         </Routes>
       </div>
-      {/* <button onClick={handleClick}>click</button> */}
     </div>
   );
 }

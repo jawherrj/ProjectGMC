@@ -12,6 +12,7 @@ import axios from "axios";
  * @access public
  */
 const baseurl = "http://localhost:5000";
+const baseurl2 = "http://localhost:5000/auth";
 export const register = (newUser, navigate) => async (dispatch) => {
   dispatch({ type: LOADING });
   console.log(newUser);
@@ -70,7 +71,7 @@ export const getCurrentUser = () => async (dispatch) => {
     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   };
   try {
-    const { data } = await axios.get(`${baseurl}/`, opts);
+    const { data } = await axios.get(`${baseurl2}/`, opts);
     dispatch({ type: GETSUCCESS, payload: data.user });
     if (data.msg) {
       alert(data.msg);
