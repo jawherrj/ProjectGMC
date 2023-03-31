@@ -8,6 +8,7 @@ import NavigationBar from "./components/NavigationBar";
 
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentUser } from "./JS/actions/authactions";
+import Aboutus from "./components/Aboutus";
 //import { useEffect } from "react";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/" element={<Home />} />
+          <Route path="/about_us" element={<Aboutus />} />
         </Routes>
       </div>
       {/* <button onClick={handleClick}>click</button> */}

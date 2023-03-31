@@ -1,10 +1,17 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { getCurrentUser } from "../JS/actions/authactions";
 
 import "./style.css";
 
 const Home = () => {
+  const handleClick = () => {
+    const dispatch = useDispatch;
+    dispatch(getCurrentUser());
+  };
   return (
     <div>
+      <button onClick={handleClick}>click</button>
       <div>
         <a id="login-customer" class="btn btn--border" href="/login">
           Client area
